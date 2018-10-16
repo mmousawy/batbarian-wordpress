@@ -1,0 +1,50 @@
+.topbar {
+	position: relative;
+	background-color: $cl-bg-topbar;
+	box-shadow: 0 -2px 0 #5c565b inset;
+	text-transform: uppercase;
+	font-size: 14px;
+
+	&::before {
+		content: '';
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: radial-gradient(circle at 50% 50%, transparent 12rem, rgba(0, 0, 0, 0) 24rem, rgba(0, 0, 0, 0.65) 48rem);
+		pointer-events: none;
+	}
+
+	aside {
+		text-align: center;
+		line-height: 1.5;
+
+		+ aside {
+			margin-left: auto;
+		}
+	}
+}
+
+.topbar__wrapper {
+	z-index: 2;
+	position: relative;
+	display: flex;
+	align-items: center;
+	max-width: $sz-max-width;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+
+	@include bp(small) {
+		flex-direction: column;
+		padding: 1rem;
+
+		> aside {
+			+ aside{
+				margin-left: 0;
+				margin-top: 1rem;
+			}
+		}
+	}
+}
