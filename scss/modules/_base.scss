@@ -1,0 +1,10 @@
+html,
+body {
+	background-color: $cl-bg;
+	overflow-x: hidden;
+}
+
+* {
+	-ms-interpolation-mode: nearest-neighbor;
+	image-rendering: pixelated;
+}

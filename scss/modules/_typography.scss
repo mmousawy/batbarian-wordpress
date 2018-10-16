@@ -1,0 +1,40 @@
+html,
+body {
+	font-smooth: never;
+	-webkit-font-smoothing : none;
+	font-family: 'kongtextregular';
+	color: $cl-fg;
+}
+
+p {
+	font-size: 14px;
+	line-height: 1.7;
+
+	+ p {
+		margin-top: 2em;
+	}
+
+	.big {
+		display: inline-block;
+		margin-right: 1ch;
+		font-size: 24px;
+
+		&.left {
+			float: left;
+		}
+	}
+}
+
+a {
+	color: $cl-link;
+}
+
+h1 {
+	font-size: 2.5rem;
+	margin-bottom: 1em;
+}
+
+h2 {
+	font-size: 2rem;
+	line-height: 1.4;
+}

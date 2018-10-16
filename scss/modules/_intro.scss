@@ -1,0 +1,218 @@
+$sz-torch-distance: 12%;
+$sz-torch-distance-mobile: 28%;
+
+$cl-torch: #8bebf1;
+
+header {
+	position: relative;
+	height: 30rem;
+	overflow: hidden;
+	user-select: none;
+
+	&.shake {
+		animation: shake 256ms forwards;
+	}
+}
+
+.header__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #22282f;
+	background-image: url('assets/img/cavewall_tileable.png');
+	background-repeat: repeat-x;
+	background-position-x: 50%;
+	background-position-y: 100%;
+}
+
+.header__ceiling {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80px;
+	background-image: url('assets/img/cavewallbg_top.png');
+	background-repeat: repeat-x;
+	background-position-x: 50%;
+}
+
+.header__floor {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 20%;
+	background-color: #1b191c;
+	background-image: url('assets/img/caveground_tileable.png');
+	background-repeat: repeat-x;
+	background-position-x: 50%;
+}
+
+.header__torch {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 44px;
+	height: 64px;
+	background-image: url('assets/img/torch.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	&--left {
+		margin-left: -$sz-torch-distance;
+		transform: translate(-50%, -50%);
+
+		@include bp(small) {
+			margin-left: $sz-torch-distance-mobile;
+		}
+	}
+
+	&--right {
+		margin-left: $sz-torch-distance;
+		transform: translate(-50%, -50%);
+
+		@include bp(small) {
+			margin-left: -$sz-torch-distance-mobile;
+		}
+	}
+
+	&.is-lit {
+		z-index: 3;
+		background-image: url('assets/img/torch-lit.gif');
+	}
+}
+
+.header__torch-light {
+	content: '';
+	z-index: 2;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 15rem;
+	height: 15rem;
+	background-image: radial-gradient(circle closest-side, $cl-torch 20%, transparentize($cl-torch, .5) 40%, transparentize($cl-torch, 1) 85%);
+	transform: translate(-50%, -55%) scale(0);
+	mix-blend-mode: soft-light;
+
+	&--left {
+		margin-left: -$sz-torch-distance;
+
+		@include bp(small) {
+			margin-left: -$sz-torch-distance-mobile;
+		}
+	}
+
+	&--right {
+		margin-left: $sz-torch-distance;
+		animation-delay: 64ms;
+
+		@include bp(small) {
+			margin-left: $sz-torch-distance-mobile;
+		}
+	}
+
+	&.is-lit {
+		animation: lightFlicker 256ms infinite both;
+		transition: transform 100ms;
+		transform: translate(-50%, -55%) scale(1);
+	}
+
+	&.is-lit-ie {
+		animation: lightFlickerIE 256ms infinite both;
+		transition: transform 100ms;
+		transform: translate(-50%, -55%) scale(1);
+	}
+}
+
+.header__pip {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 80px;
+	height: 80px;
+	background-image: url('assets/img/pip.gif');
+	background-repeat: no-repeat;
+	background-size: contain;
+	transform: translate(-50%, -50%);
+	animation: pip 4.5s both;
+	animation-delay: 500ms;
+	animation-timing-function: ease-in-out;
+}
+
+.header__barbarian {
+	position: absolute;
+	left: 50%;
+	bottom: calc(20% - 8px);
+	width: 80px;
+	height: 80px;
+	background-image: url('assets/img/barbarian.gif');
+	background-origin: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transform: translate(-50%, 0);
+
+	&.is-active {
+		background-image: url('assets/img/barbarian_idle.gif');
+	}
+}
+
+.header__barbarian-sparkle {
+	z-index: 2;
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	left: 50%;
+	margin-left: -22px;
+	bottom: calc(20% + 48px);
+	background-image:
+		radial-gradient(25% 25% at center, #fff 10%, transparentize(#fff, .8) 30%, transparentize(#fff, 1) 100%),
+		radial-gradient(50% 10% at center, #fff 10%, transparentize(#fff, .8) 30%, transparentize(#fff, 1) 100%);
+	animation: sparkle 1s both;
+	animation-delay: 3500ms;
+	mix-blend-mode: hard-light;
+}
+
+.header__spotlight {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparentize(#000, .85);
+	animation: fadeInSpotlight 1000ms forwards;
+	transition: opacity 500ms;
+
+	&.is-revealed {
+		opacity: .7;
+	}
+}
+
+.header__logo {
+	z-index: 4;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	width: 371px;
+	height: 176px;
+	background-image: url('assets/img/batbarian_logo_yellow.png');
+	background-origin: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transform: translate(-50%, 0) scale(3);
+	opacity: 0;
+	transition: transform 300ms;
+
+	&.is-visible {
+		opacity: 1;
+		transform: translate(-50%, 0) scale(1);
+	}
+}
+
+.header__decals {
+	img {
+		position: absolute;
+		left: 50%;
+	}
+}
