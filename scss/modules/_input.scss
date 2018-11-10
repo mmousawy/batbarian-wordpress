@@ -10,14 +10,14 @@
 		&:hover {
 			background-color: currentColor;
 			text-shadow:
-				-2px 0 0 black,
-				0 -2px 0 black,
-				2px 0 0 black,
-				0 2px 0 black,
-				-2px 2px 0 black,
-				2px -2px 0 black,
-				2px 2px 0 black,
-				-2px -2px 0 black;
+				-2px 0 0 $cl-black,
+				0 -2px 0 $cl-black,
+				2px 0 0 $cl-black,
+				0 2px 0 $cl-black,
+				-2px 2px 0 $cl-black,
+				2px -2px 0 $cl-black,
+				2px 2px 0 $cl-black,
+				-2px -2px 0 $cl-black;
 		}
 	}
 }

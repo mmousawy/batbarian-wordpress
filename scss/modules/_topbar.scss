@@ -13,7 +13,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: radial-gradient(circle at 50% 50%, transparent 12rem, rgba(0, 0, 0, 0) 24rem, rgba(0, 0, 0, 0.65) 48rem);
+		background-image: radial-gradient(circle at 50% 50%, transparent 12rem, rgba(0, 0, 0, 0) 24rem, transparentize($cl-black, .35) 48rem);
 		pointer-events: none;
 	}
 
