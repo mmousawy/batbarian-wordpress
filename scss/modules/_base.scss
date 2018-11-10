@@ -4,6 +4,10 @@ body {
 	overflow-x: hidden;
 }
 
+.no-scroll {
+	overflow: hidden;
+}
+
 * {
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: pixelated;

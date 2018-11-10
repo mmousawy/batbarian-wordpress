@@ -16,7 +16,6 @@
 	var spotlightScale = spotlightScaleStart;
 	var centerScreenX = window.innerWidth * .5;
 	var blendingAvailable = (window.getComputedStyle(document.body).mixBlendMode !== undefined);
-	var introContainerPosition = header.getBoundingClientRect();
 
 	pip.addEventListener('animationend', function() {
 		spotlight.classList.add('is-revealed');
@@ -45,9 +44,8 @@
 		var locationY;
 
 		if (!animationDone) {
-			var pipPosition = pip.getBoundingClientRect();
-			locationX = pipPosition.left + pipPosition.width * .5 + 'px';
-			locationY = pipPosition.top + document.documentElement.scrollTop - introContainerPosition.top + pipPosition.height * .5 + 'px';
+			locationX = pip.offsetLeft + 'px';
+			locationY = pip.offsetTop + 'px';
 			spotlightScale = spotlightScaleStart + (Math.random() - Math.random()) * .3;
 		} else {
 			locationX = centerScreenX + 'px';
@@ -74,7 +72,7 @@
 
 	window.addEventListener('resize', function() {
 		centerScreenX = window.innerWidth * .5;
-		animationStep()
+		animationStep();
 	});
 
 	window.requestAnimationFrame(animationStep);
@@ -105,4 +103,12 @@
 			decals.appendChild(decal);
 		}
 	}
+
+	document.querySelector('.trailer-button').addEventListener('click', function() {
+		document.querySelector('.trailer-video-holder').classList.add('is-open');
+		document.querySelector('.trailer-video-holder iframe').contentWindow.postMessage(JSON.stringify({
+			'event': 'command',
+			'func': 'playVideo'
+		}), "*");
+	});
 })();

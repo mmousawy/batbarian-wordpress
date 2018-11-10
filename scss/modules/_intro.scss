@@ -167,8 +167,8 @@ header {
 	margin-left: -22px;
 	bottom: calc(20% + 48px);
 	background-image:
-		radial-gradient(25% 25% at center, #fff 10%, transparentize(#fff, .8) 30%, transparentize(#fff, 1) 100%),
-		radial-gradient(50% 10% at center, #fff 10%, transparentize(#fff, .8) 30%, transparentize(#fff, 1) 100%);
+		radial-gradient(25% 25% at center, $cl-white 10%, transparentize($cl-white, .8) 30%, transparentize($cl-white, 1) 100%),
+		radial-gradient(50% 10% at center, $cl-white 10%, transparentize($cl-white, .8) 30%, transparentize($cl-white, 1) 100%);
 	animation: sparkle 1s both;
 	animation-delay: 3500ms;
 	mix-blend-mode: hard-light;
@@ -180,7 +180,7 @@ header {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: transparentize(#000, .85);
+	background: transparentize($cl-black, .85);
 	animation: fadeInSpotlight 1000ms forwards;
 	transition: opacity 500ms;
 
